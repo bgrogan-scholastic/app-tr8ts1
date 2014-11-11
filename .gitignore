@@ -1,0 +1,7 @@
+# Trait Space - Ignore List
+apache/
+common/
+releasetool2client/
+stage/
+techsvs/
+releasetool2-client.tar

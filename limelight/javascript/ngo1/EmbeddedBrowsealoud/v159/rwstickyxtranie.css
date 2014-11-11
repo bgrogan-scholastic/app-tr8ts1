@@ -1,0 +1,121 @@
+#rwSticky
+{
+    z-index: 500;
+
+    position: fixed !important;
+    position: absolute !important;
+
+    line-height: 20px;
+    left: 110px;
+    top: 110px;
+
+    background: url( "rwimgs/sticky_bg.gif" );
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    opacity:0.985;
+    filter: alpha(opacity = 98);
+}
+
+#stickyNoteText
+{
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 230px;
+    height: 175px;
+    font-weight: normal;
+    background: #fffbba;
+    overflow: auto;
+    padding: 0px;
+    margin:4px;
+
+    position:relative;
+    top:10;
+}
+
+
+.sticky_bar
+{
+    text-align: left;
+}
+
+.sticky_bar_top
+{
+    text-align: right;
+}
+
+#rwDragMeStickyNoteTop
+{
+    cursor:move;
+    border:0;
+    position:relative;
+    top:0;
+    height:30px;
+    vertical-align:middle;
+}
+
+#rwDragMeStickyNoteBot
+{
+    cursor:move;
+    border:0;
+    position:relative;
+    top:10;
+    height:30px;
+    vertical-align:middle;
+}
+
+
+.sticky_icon_unselected
+{
+    border-width:3px;
+    border-style:solid;
+    border-color:transparent;
+}
+
+.sticky_icon_selected
+{
+    border-width:3px;
+    border-style:solid;
+    border-color:#50D0D0;
+}
+
+.stickyNoteIcon
+{
+    position:relative;
+    border-top:0px none;
+    border-left:0px none;
+    border-bottom:0px none;
+    border-right:3px transparent;
+}
+
+
+#saveclosebutton
+{
+    background-color:#fffbba;
+    font-family:Verdana,inherit;
+    margin-top:3px;
+    margin-right:3px;
+}
+
+
+#removebutton
+{
+    background-color:#fffbba;
+    font-family:Verdana,inherit;
+    margin-top:3px;
+    margin-right:3px;
+}
+
+#saveclosebuttonimg
+{
+    cursor:default;
+    margin-top:3px;
+    margin-right:3px;
+}
+
+#removebuttonimg
+{
+    cursor:default;
+    margin-right:3px;
+
+}

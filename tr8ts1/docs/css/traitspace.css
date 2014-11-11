@@ -1,0 +1,243 @@
+/* body */
+body {
+	color: #333;
+	font-family: arial;
+	font-size: .70em;
+	font-variant: normal;
+	font-weight: normal;
+	font-style: normal;
+	background-color: #10a9e1;
+	background-image: url(/images/background.jpg);
+	background-repeat: repeat-x;
+	margin-top: 5px;
+	margin-left: -10px;
+	text-align: center; 
+}
+
+/*   ######################################   */
+/*
+*	Setup CSS Menu
+*/
+ul.cssmenu {
+	list-style: none;
+	padding: 0px;
+	}
+
+ul.cssmenu2 {
+	float:left;
+	list-style: none;
+	padding-left:150px;
+	width: 800px;
+	}
+
+.displace {
+	position: absolute;
+	left: -5000px;
+	}
+
+ul.cssmenu li {
+	float: left;
+	}
+
+ul.cssmenu2 li {
+	float: left;
+	}
+
+ul.cssmenu li a {
+	display: block;
+	width: 100px;
+	height: 110px;
+	background: url('/images/grade-k-5.png');
+	}
+
+ul.cssmenu2 li a {
+	display: block;
+	width: 100px;
+	height: 110px;
+	background: url('/images/grade-6-8.png');
+	}
+
+/*
+*	Normal Links
+*/
+ul.cssmenu li.grade_k a {
+	background-position: 0 0;
+	}
+
+ul.cssmenu li.grade_1 a {
+	background-position: -100px 0;
+	}
+
+ul.cssmenu li.grade_2 a {
+	background-position: -200px 0;
+	}
+
+ul.cssmenu li.grade_3 a {
+	background-position: -300px 0;
+	}
+
+ul.cssmenu li.grade_4 a {
+	background-position: -400px 0;
+	}
+
+ul.cssmenu li.grade_5 a {
+	background-position: -500px 0;
+	}
+
+ul.cssmenu2 li.grade_6 a {
+	background-position: -0px 0;
+	}
+
+ul.cssmenu2 li.grade_7 a {
+	background-position: -100px 0;
+	}
+
+ul.cssmenu2 li.grade_8 a {
+	background-position: -200px 0;
+	}
+/*
+*	Hover Links
+*/
+ul.cssmenu li.grade_k a:hover {
+	background-position: 0 -120px;
+	}
+
+ul.cssmenu li.grade_1 a:hover {
+	background-position: -100px -120px;
+	}
+
+ul.cssmenu li.grade_2 a:hover {
+	background-position: -200px -120px;
+	}
+
+ul.cssmenu li.grade_3 a:hover {
+	background-position: -300px -120px;
+	}
+
+ul.cssmenu li.grade_4 a:hover {
+	background-position: -400px -120px;
+	}
+
+ul.cssmenu li.grade_5 a:hover {
+	background-position: -500px -120px;
+	}
+
+
+ul.cssmenu2 li.grade_6 a:hover {
+	background-position: -0px -120px;
+	}
+
+
+ul.cssmenu2 li.grade_7 a:hover {
+	background-position: -100px -120px;
+	}
+
+
+ul.cssmenu2 li.grade_8 a:hover {
+	background-position: -200px -120px;
+	}
+
+/*   ######################################   */
+
+/* positioning */
+#background {
+	background: #10a9e1 url(/images/background-image.jpg);
+	background-repeat: no-repeat;
+	height: 620px;
+	width: 960px;
+	float: left;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	z-index: 1;
+}
+
+ #container {
+ 	width: 960px;
+ 	height: 620px;
+ 	margin: 0px auto;
+ 	background: #10a9e1 url(/images/background-image.jpg);
+        background-repeat: no-repeat;
+ 	line-height: 150%;
+ 	padding: 0px;
+ }
+ #grade1 {
+	width: 600px;
+	text-align: left;
+	z-index: 2;
+	float: left;
+	position: relative;
+	margin-top: 210px;
+	margin-left: 190px;
+	border: 0px;
+}
+
+#grade2 {
+	width: 800px;
+	text-align: center;
+	z-index: 2;
+	float: left;
+	position: absolute;
+	margin-top: 335px;
+	margin-left: 315px;
+	border: 0px;
+}
+
+/* links */
+a {
+	text-decoration: none;
+	color: #0695c9;
+}
+a:hover { text-decoration: underline; }
+a:visited { 
+text-decoration: none;
+color: #9966CC;
+}
+
+/*
+a { display:block; width:88px; height:97px; overflow:hidden;  align:left;}
+a:hover { display:block; text-indent:-88px; }
+*/
+
+/* footer */
+#footer-main{
+}
+#footer {
+	width: 840px;
+	text-align: left;
+	z-index: 2;
+	float: right;
+	position: absolute;
+	margin-top: 594px;
+	margin-left: 190px;
+	border: 0px;
+	color: #000;
+	font-family: arial;
+	font-size: 11px;
+}
+#footer-center {
+	width: 800px;
+	text-align: left;
+	z-index: 2;
+	float: left;
+	position: absolute;
+	margin-top: 558px;
+	margin-left: 300px;
+	border: 0px;
+	color: #000;
+	font-family: arial;
+	font-size: 11px;
+}
+#footer-right {
+	width: 200px;
+	text-align: left;
+	z-index: 2;
+	float: left;
+	position: absolute;
+	margin-top: 594px;
+	margin-left: 620px;
+	border: 0px;
+	color: #000;
+	font-family: arial;
+	font-size: 11px;
+}

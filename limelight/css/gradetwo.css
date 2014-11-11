@@ -1,0 +1,292 @@
+/* body */
+body {
+	color: #535353;
+	font-family: arial;
+	font-size: 12px;
+	font-variant: normal;
+	font-weight: normal;
+	font-style: normal;
+	background-color: #70b8e6;
+	background-image: url(/images/gradetwo/background.jpg);
+	background-repeat: repeat-x;
+	margin-top: 0px;
+	margin-left: -10px;
+	text-align: center;
+}
+
+hr {
+	height: 0px;
+	border-top: 0;
+	border-right: 0px;
+	border-bottom: thin #19599a solid;
+	border-left: 0px;
+}
+h1{
+	color: #19599a;
+	font-size: 25px;
+	margin-left: 20px;
+	line-height: 110%;
+}
+
+h2 {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 40px;
+	padding-top: 12px;
+	line-height: 110%;
+}
+p{
+	text-align: left;
+	margin-left: 60px;
+	line-height: 100%;
+}
+#navigation {
+	width: 640px;
+	text-align: center;
+	z-index: 2;
+	float: right;
+	position: absolute;
+	margin-top: 0px;
+    margin-left: 440px;
+    padding: 0px;
+}
+
+/*   ######################################   */
+
+/*
+*	Setup CSS Top Menu
+*/
+
+ul.cssmenu {
+	float:left;
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+
+
+ul.cssmenu2 {
+	list-style: none;
+	padding: 0px;
+}
+
+.displace {
+	position: absolute;
+	left: -5000px;
+}
+
+ul.cssmenu li { float: left; }
+
+ul.cssmenupage li a {
+	display: block;
+	width: 491px;
+	height: 50px;
+	background: url('/images/gradetwo/2.png');
+}
+
+ul.cssmenu li a {
+	display: block;
+	width: 43px;
+	height: 50px;
+	background: url('/images/gradetwo/2.png');
+}
+
+/*
+*	Normal Links
+*/
+
+ul.cssmenu li.grade_k a { background-position: 0px 0; width: 55px; }
+ul.cssmenu li.grade_1 a { background-position: -55px 0; }
+ul.cssmenu li.grade_2 a { background-position: -98px 0; width: 150px;}
+ul.cssmenu li.grade_3 a { background-position: -247px 0; }
+ul.cssmenu li.grade_4 a { background-position: -290px 0; }
+ul.cssmenu li.grade_5 a { background-position: -335px 0; }
+ul.cssmenu li.grade_6 a { background-position: -380px 0; }
+ul.cssmenu li.grade_7 a { background-position: -424px 0; }
+ul.cssmenu li.grade_8 a { background-position: -468px 0; }
+
+/*
+*	Hover Links
+*/
+
+ul.cssmenu li.grade_k a:hover { background-position: 0px -50px; width: 55px; }
+ul.cssmenu li.grade_1 a:hover { background-position: -55px -50px; }
+ul.cssmenu li.grade_2 a:hover { background-position: -98px 0px; width: 150px;}
+ul.cssmenu li.grade_3 a:hover { background-position: -247px -50px; }
+ul.cssmenu li.grade_4 a:hover { background-position: -290px -50px; }
+ul.cssmenu li.grade_5 a:hover { background-position: -335px -50px; }
+ul.cssmenu li.grade_6 a:hover { background-position: -380px -50px; }
+ul.cssmenu li.grade_7 a:hover { background-position: -424px -50px; }
+ul.cssmenu li.grade_8 a:hover { background-position: -468px -50px; }
+
+/*   ######################################   */
+/*	Setup CSS Side Section Menu */
+/*  ****************** */
+ul.sectionmenu {
+	list-style: none;
+	float:left;
+	margin:0;
+	padding:0;
+}
+/*
+ul.sectionmenu { text-indent: 0px; }
+*/
+
+ul.sectionmenu li {
+	float:left;
+	clear:both;
+	margin:0;
+	padding:0;
+}
+
+ul.sectionmenu  a {
+	width:180px;
+	border:0;
+	display:block;
+	float:left;
+	margin:0;
+	padding:0;
+}
+
+ul.sectionmenu li a span 
+{
+	display:block;
+	font-size:12px;
+	font-weight:700;
+	line-height:33px;
+	padding:0 12px;
+/*	width: 182px;
+*/	height: 39px;
+}
+
+#sectionmenu a:hover span,#sectionmenu li.item_active a span 
+{
+	background-position:left bottom;
+	color:#19599a;
+	font-weight:700;
+	font-style:normal;
+	text-decoration:none;
+}
+
+ul.sectionmenu li.sectionmenuline a:hover { text-decoration: none; background-color: #c0e6f9; }
+
+ul.sectionmenu li.sectionmenuline a:hover {
+	background-image: url(/images/gradetwo/arrow.gif);
+	padding-left: 0px;
+	background-repeat: no-repeat;
+	background-position: 170px;
+}
+
+/* Modify selected page menu line */
+/* Put Body Page ID in here to highlight page in left nav */
+
+#sectionmenu_active {
+	border-bottom: thin solid;
+	background-color: #c0e6f9;
+	background-image: url(/images/gradetwo/arrow.gif);
+	padding-top: 0px;
+	background-repeat: no-repeat;
+	background-position: 170px;
+}
+
+/*   ######################################   */
+/* positioning */
+#container {
+	width: 960px;
+	height: 720px;
+	margin: 0px auto;
+	background: #70b8e6 url(/images/gradetwo/background-image.jpg);
+	background-repeat: no-repeat;
+	line-height: 150%;
+	padding: 0px;
+}
+/*left menu*/
+#menu-left {
+	width: 182px;
+	text-align: left;
+	z-index: 3;
+	float: right;
+	margin-top: 100px;
+	margin-left: 42px;
+	color: #19599a;
+	font-size: 14px;
+	line-height: 15px;
+	border-bottom: 0px #F90 dashed; 
+	position: absolute;	
+}
+
+#menu-left a {
+	color: #19599a;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+/* content */
+
+#content {
+	width: 724px;
+	text-align: left;
+	z-index: 2;
+	float: right;
+	position: absolute;
+	margin-top: 100px;
+	margin-left: 225px;
+	border: 0px;
+	background-color: #FFF;
+}
+
+
+/* links */
+a:link, a:active{
+	text-decoration: none;
+	color: #0000cc;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #9966CC;
+}
+
+a:hover { text-decoration: underline; }
+
+
+
+/* footer */
+
+#footer {
+	width: 724px;
+	height: 80px;
+	text-align: center;
+	z-index: 3;
+	position: relative;
+	margin-top: 100px;
+	border: 0px;
+	font-size: 9px;
+}
+
+
+#sectionmenu_top_bottom {
+border-top: 2px solid;
+} 
+
+#sectionmenu_bottom {
+border-bottom: thin solid;
+}
+
+#sectionmenu_top_active {
+	background-color: #c0e6f9;
+	background-image: url(/images/gradetwo/arrow.gif);
+	padding-top: 0px;
+	background-repeat: no-repeat;
+	background-position: 170px;
+	border-top: 2px solid;
+}
+
+#sectionmenu_bottom_active {
+	background-color: #c0e6f9;
+	background-image: url(/images/gradetwo/arrow.gif);
+	padding-top: 0px;
+	background-repeat: no-repeat;
+	background-position: 170px;
+}

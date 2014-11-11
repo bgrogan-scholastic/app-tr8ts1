@@ -1,0 +1,16 @@
+#!/bin/csh
+
+echo "Starting Ldap Exports Script"
+#make sure to use python2.3 as it has the ldap module compiled in
+
+setenv PYTHONPATH "/data/techsvs/scripts/python:/data/techsvs/scripts/python/common"
+
+cd /data/techsvs/scripts/python/system/ldap/exports
+echo "" >> /data/techsvs/logs/exports.log
+echo "---------------BEGINNING PROCESS------------------------" >> /data/techsvs/logs/exports.log
+date >> /data/techsvs/logs/exports.log
+echo "--------------------------------------------------------" >> /data/techsvs/logs/exports.log
+
+python2.3 GI_LdapExports.py >> /data/techsvs/logs/exports.log
+
+

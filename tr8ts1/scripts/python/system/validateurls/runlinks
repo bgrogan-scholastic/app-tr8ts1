@@ -1,0 +1,5 @@
+#!/bin/csh
+
+setenv PYTHONPATH "/data/gii/scripts/python/common"
+
+python GI_FindStaticWebLinks.py

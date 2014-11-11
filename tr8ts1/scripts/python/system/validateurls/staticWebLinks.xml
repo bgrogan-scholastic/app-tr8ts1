@@ -1,0 +1,157 @@
+<?xml version="1.0" standalone="no"?>
+
+<!DOCTYPE links SYSTEM "staticWebLinks.dtd">
+
+<links>
+	<config>
+		<!-- these are the directories to save the results file to -->
+		<savelocations>
+			<savelocation method="file" directory="/tmp" filename="staticurls.tab"/>
+			<ftpsavelocation method="ftp" server="linuxstage.grolier.com" username="gii" password="gii" directory="/export/home/gii/delivery" filename="staticurls.tab"/>
+		</savelocations>
+
+		<email server="dcslmail.grolier.com" from="treisel@scholasticlibrary.com" to="treisel@scholasticlibrary.com,dknight@scholasticlibrary.com,dlanglois@scholasticlibrary.com" subject="Web Links: Static Page link finder error"/>
+	
+	</config>
+	
+	<products>
+		<product name="ap">
+			<features>
+				<feature name="2004 Presidential Election Web Sites">
+					<directories>
+						<directory location="/data/ap/docs/static" pattern="election_links.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="Historical Web Sites">
+					<directories>
+						<directory location="/data/ap/docs/static" pattern="hist_links.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>
+	
+		<product name="atb">
+			<features>
+				<feature name="About This Site">
+					<directories>
+						<directory location="/data/atb/docs/atb-ol/static" pattern="atback.html"/>
+					</directories>
+				</feature>
+			</features>
+		</product>
+	
+		<product name="eas">
+			<features>
+				<feature name="Related Sites">
+					<directories>
+						<directory location="/data/eas/docs/static" pattern="relatedsites.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="Curriculum">
+					<directories>
+						<directory location="/data/eas/docs/static" pattern="curriculum.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>
+	
+		<product name="ea3">
+			<features>
+				<feature name="Americana Journal">
+					<directories>
+						<directory location="/data/ea3/docs/ea-ol/news/text" pattern="*.html"/>
+					</directories>
+				</feature>
+			</features>
+		</product>
+	
+		<product name="gme3">
+			<features>
+				<feature name="News Articles">
+					<directories>
+						<directory location="/data/gme3/docs/gme-ol/news" pattern="*.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="News Sources">
+					<directories>
+						<directory location="/data/gme3/docs/gme-ol/static" pattern="newsource.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>
+	
+		<product name="lp">
+			<features>
+				<!-- could not seperate activities from articles because they are in delimited files as one cohesive unit -->
+				<feature name="News Desk">
+					<directories>
+						<directory location="/data/lp/docs/lp-ol/news-desk" pattern="*.html"/>
+					</directories>
+				</feature>
+			</features>
+		</product>
+	
+		<product name="nbps2">
+			<features>
+				<feature name="NewsBytes Activities">
+					<directories>
+						<directory location="/data/nbps2/docs/nbps-ol/news/text" pattern="v*.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="NewsBytes Articles">
+					<directories>
+						<directory location="/data/nbps2/docs/nbps-ol/news/text" pattern="n*.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>	
+	
+		<product name="nbk3">
+			<features>
+				<feature name="static">
+					<directories>
+						<directory location="/data/nbk3/docs/static" pattern="*.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="news">
+					<directories>
+						<directory location="/data/nbk3/docs/news/text" pattern="*html"/>
+					</directories>
+				</feature>
+	
+				<feature name="articles">
+					<directories>
+						<directory location="/data/nbk3/docs/text" pattern="*.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>
+	
+		<product name="nec2">
+			<features>
+				<feature name="news">
+					<directories>
+						<directory location="/data/nec2/docs/static" pattern="newslinks.html"/>
+					</directories>
+				</feature>
+	
+				<feature name="teachers resources">
+					<directories>
+						<directory location="/data/nec2/docs/cache" pattern="*teacher*.html"/>
+					</directories>
+				</feature>
+	
+			</features>
+		</product>
+	</products>
+</links>

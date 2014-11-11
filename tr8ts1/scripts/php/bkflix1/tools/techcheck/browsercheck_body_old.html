@@ -1,0 +1,367 @@
+<?php
+    require_once($_SERVER['PHP_INCLUDE_HOME'].'common/utils/GI_BrowserDetect.php');
+?><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BookFlix -- Browser technology check</title>
+<link href="/css/bkflix.css" rel="stylesheet" type="text/css">
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8"> 
+<meta http-equiv="Content-Script-Type" Content="text/javascript">
+
+<script>
+    <?php echo output_js(); ?>
+</script>
+
+<script src="/utils/GI_Sound.js"></script>
+<script src="/graphical/popup.js"></script>
+<script type="text/JavaScript">
+
+
+var flashVersion = '<span style="color:red; font-weight:bolder;">Cannot detect your version of Flash.<br>  The version is probably to old to detect, please use the link below to upgrade to version 8. <br> <a href="http://www.macromedia.com/go/getflashplayer">http://www.macromedia.com/go/getflashplayer</a></span>';
+
+function setFlashVersion(inVersion){
+
+
+    // Check that we have an adequate version.
+    var minVersion = 8;
+    var pattern=/(\w+) (\d+),(\d+),(\d+),(\d+)/;
+    var result = inVersion.match(pattern);
+
+    if (result != null) {
+        e = document.getElementById('flashverstring');
+        if (e) {
+            if (result[2] < minVersion) {
+                e.innerHTML = '<span style="color:red; font-weight:bolder;">You have the incorrect version of Flash.<br> Required Version: 8<br> Your version: ('+inVersion+'):<br /> Please use the link below to update your flash version to 8.<br>(<a href="http://www.macromedia.com/go/getflashplayer">http://www.macromedia.com/go/getflashplayer</a>)</span>.';
+                }
+            else {
+                e.innerHTML = '<span style="color:green; font-weight:bolder;">Yes, the version of Flash installed on your computer is the one required for this site.</span>';
+            	
+            }
+        }
+    }
+
+}
+
+function gotoFeaturePair(){
+    alert("Flash script access is working.");
+}
+
+// This is the plugin detection module.
+// initialize global variables
+var detectableWithVB = false;
+var pluginFound = false;
+
+function detectFlash() {
+    pluginFound = detectPlugin('Shockwave','Flash');
+    // if not found, try to detect with VisualBasic
+    if(!pluginFound && detectableWithVB) {
+    	pluginFound = detectActiveXControl('ShockwaveFlash.ShockwaveFlash.1');
+    }
+    return pluginFound;
+}
+
+function detectQuickTime() {
+    pluginFound = detectPlugin('QuickTime');
+    // if not found, try to detect with VisualBasic
+    if(!pluginFound && detectableWithVB) {
+	pluginFound = detectQuickTimeActiveXControl();
+    }
+    return pluginFound;
+}
+
+function detectWindowsMedia(redirectURL, redirectIfFound) {
+    pluginFound = detectPlugin('Windows Media');
+    // if not found, try to detect with VisualBasic
+    if(!pluginFound && detectableWithVB) {
+	pluginFound = detectActiveXControl('MediaPlayer.MediaPlayer.1');
+    }
+    return pluginFound;
+}
+
+function detectPlugin() {
+    // allow for multiple checks in a single pass
+    var daPlugins = detectPlugin.arguments;
+    // consider pluginFound to be false until proven true
+    var pluginFound = false;
+    // if plugins array is there and not fake
+    if (navigator.plugins && navigator.plugins.length > 0) {
+	var pluginsArrayLength = navigator.plugins.length;
+	// for each plugin...
+	for (pluginsArrayCounter=0; pluginsArrayCounter < pluginsArrayLength; pluginsArrayCounter++ ) {
+	    // loop through all desired names and check each against the current plugin name
+	    var numFound = 0;
+	    for(namesCounter=0; namesCounter < daPlugins.length; namesCounter++) {
+		// if desired plugin name is found in either plugin name or description
+		if( (navigator.plugins[pluginsArrayCounter].name.indexOf(daPlugins[namesCounter]) >= 0) || 
+		    (navigator.plugins[pluginsArrayCounter].description.indexOf(daPlugins[namesCounter]) >= 0) ) {
+		    // this name was found
+		    numFound++;
+		}   
+	    }
+	    // now that we have checked all the required names against this one plugin,
+	    // if the number we found matches the total number provided then we were successful
+	    if(numFound == daPlugins.length) {
+		pluginFound = true;
+		// if we've found the plugin, we can stop looking through at the rest of the plugins
+		break;
+	    }
+	}
+    }
+    return pluginFound;
+} // detectPlugin
+
+
+function getPluginDescription(){
+    var daPlugins = getPluginDescription.arguments;
+    var outDescription = 'Unable to retrieve plugin description.';
+
+    if (navigator.plugins && navigator.plugins.length > 0) {
+
+    	var pluginsArrayLength = navigator.plugins.length;
+
+    	// for each plugin...
+	    for (pluginsArrayCounter=0; pluginsArrayCounter < pluginsArrayLength; pluginsArrayCounter++ ) {
+    	    // loop through all desired names and check each against the current plugin name
+	        var numFound = 0;
+	        for(namesCounter=0; namesCounter < daPlugins.length; namesCounter++) {
+        		// if desired plugin name is found in either plugin name or description
+	        	if( (navigator.plugins[pluginsArrayCounter].name.indexOf(daPlugins[namesCounter]) >= 0) || 
+		            (navigator.plugins[pluginsArrayCounter].description.indexOf(daPlugins[namesCounter]) >= 0) ) {
+		            // this name was found
+    		        numFound++;
+    	    	}   
+	        }
+
+	        // now that we have checked all the required names against this one plugin,
+	        // if the number we found matches the total number provided then we were successful
+    	    if(numFound == daPlugins.length) {
+    		    outDescription = navigator.plugins[pluginsArrayCounter].description;
+	        	// if we've found the plugin, we can stop looking through at the rest of the plugins
+    	    	break;
+    	    }
+	    }
+	}
+  
+    return outDescription;
+}
+
+function getPluginName(){
+    var daPlugins = getPluginName.arguments;
+    var outName = 'Unable to retrieve plugin name.';
+
+    if (navigator.plugins && navigator.plugins.length > 0) {
+
+    	var pluginsArrayLength = navigator.plugins.length;
+
+    	// for each plugin...
+	    for (pluginsArrayCounter=0; pluginsArrayCounter < pluginsArrayLength; pluginsArrayCounter++ ) {
+    	    // loop through all desired names and check each against the current plugin name
+	        var numFound = 0;
+	        for(namesCounter=0; namesCounter < daPlugins.length; namesCounter++) {
+        		// if desired plugin name is found in either plugin name or description
+	        	if( (navigator.plugins[pluginsArrayCounter].name.indexOf(daPlugins[namesCounter]) >= 0) || 
+		            (navigator.plugins[pluginsArrayCounter].description.indexOf(daPlugins[namesCounter]) >= 0) ) {
+		            // this name was found
+    		        numFound++;
+    	    	}   
+	        }
+
+	        // now that we have checked all the required names against this one plugin,
+	        // if the number we found matches the total number provided then we were successful
+    	    if(numFound == daPlugins.length) {
+    		    outName = navigator.plugins[pluginsArrayCounter].name;
+	        	// if we've found the plugin, we can stop looking through at the rest of the plugins
+    	    	break;
+    	    }
+	    }
+	}
+  
+    return outName;
+}
+
+function setJS(){
+	jsElement = document.getElementById("jsdiv");
+	jsElement.innerHTML = 'Yes, you have Javascript enabled.';
+	jsElement.style.color='green';	
+}//end function
+
+var mp3testsound = new GI_Sound('mp3testsound', '/sounds/games/smallcheer.mp3');
+</script>
+
+</head>
+
+<body class="bg6">
+
+<?php if($is_ie): ?>
+
+<script language="VBscript">
+
+'do a one-time test for a version of VBScript that can handle this code
+detectableWithVB = False
+If ScriptEngineMajorVersion >= 2 then
+  detectableWithVB = True
+End If
+
+'this next function will detect most plugins
+Function detectActiveXControl(activeXControlName)
+  on error resume next
+  detectActiveXControl = False
+  If detectableWithVB Then
+     detectActiveXControl = IsObject(CreateObject(activeXControlName))
+  End If
+End Function
+
+'and the following function handles QuickTime
+Function detectQuickTimeActiveXControl()
+  on error resume next
+  detectQuickTimeActiveXControl = False
+  If detectableWithVB Then
+    detectQuickTimeActiveXControl = False
+    hasQuickTimeChecker = false
+    Set hasQuickTimeChecker = CreateObject("QuickTimeCheckObject.QuickTimeCheck.1")
+    If IsObject(hasQuickTimeChecker) Then
+      If hasQuickTimeChecker.IsQuickTimeAvailable(0) Then 
+        detectQuickTimeActiveXControl = True
+      End If
+    End If
+  End If
+End Function
+
+</script>
+
+<?php endif; ?>
+
+
+<table class="borderless" cellpadding="0" cellspacing="0">
+
+
+	<!-- FLASH VERSION CHECK -->
+
+	<tr>
+		<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>1. Do you have the correct version of Flash?</b></td>
+	</tr>
+	<tr>
+		<td class="text21" colspan="2">
+		
+		<script>
+			//if the user has flash ...
+		    if (detectFlash()) {
+                document.writeln("<span id=\"flashverstring\">" + flashVersion + "</span><br \>\n");
+            //if he doesnt
+		    }else{
+            	document.writeln("<span id=\"flashverstring\"><span style=\"color:red; font-weight:bolder;\">You do not have Flash installed.<br>  Please use the link below to install Flash version 8.<br><a href=\"http://www.macromedia.com/go/getflashplayer\">http://www.macromedia.com/go/getflashplayer</a></span></span><br \>\n");
+            }//end if
+            document.write(mp3testsound.getHTML());
+        </script>
+		
+        </td>
+    </tr>
+
+	<tr>
+		<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>2. Do you have javascript enabled?</b></td>
+	</tr>	
+	<tr>
+		<td class="text21" colspan="2">
+		
+		<div style="color:red;" id="jsdiv" onclick="setJS()">
+		You do not have javascript enabled. You need javascript to properly view <i>Bookflix</i>.  Please go into your browser settings and enable it.
+		</div>
+		
+        </td>
+    </tr>
+
+	<tr>
+		<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+	</tr>
+	<tr valign="top">
+		<td align="left" colspan="2">
+			<table class="borderless" cellpadding="0" cellspacing="0">
+
+				<tr>
+					<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><b>3.  Can you hear the audio on our site?</b></td>
+				</tr>
+				<tr>
+					<td class="text21" align="center"><a href="javascript:mp3testsound.play()"><img src="/images/btn_listen2_off.gif" alt="Play test sound" name="Play test sound" border="0" height="40" width="42"></a></td>
+					<td class="text21">&nbsp;Click on this icon to test if your browser can play an MP3 file.</td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text21">If you cannot hear the audio then try the following things:<br>
+					<ul>
+					<li>Make sure your speakers\headset are properly plugged in.</li>
+					<li>Make sure your volume is turned up to an audible level.</li>	
+					<li>See #1 to make sure flash is enabled.</li>				
+					</ul>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+				</tr>
+
+			</table>
+		</td>
+	</tr>
+
+<tr valign="top">
+		<td align="left" colspan="2">
+			<table class="borderless" cellpadding="0" cellspacing="0">
+
+				<tr>
+					<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><b>4. Can you see both of the images displayed below?</b></td>
+				</tr>
+				<tr>
+					<td class="text21" align="left"><img src="/images/bookflix_login.gif"></td>
+					<td class="text21" align="left"><img src="/limelight/bookflix_login.gif"></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="text21">
+					<div style="width:485px;">If you see the image on the left, and you do not see the image on the right, then you appear to be blocking a website location that is necessary for this application. 
+					Please see your system adminstrator to add the website location 'scholastic.vo.llnwd.net' 
+					to your allowable hosts at your organization. Once this is done please re-run this page 
+					to verify that the image on the right loads properly.</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><img src="images/spacer.gif" width="1" height="5" /></td>
+				</tr>
+
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"><b>5.  Bandwidth!?</b></td>
+	</tr>
+	<tr>
+		<td colspan="2"><a href="http://currdev.grolier.com:1133/scripts/php/bkflix1/meter1.php">Check out your Bandwidth</a></td>
+	</tr>	
+</table>
+
+
+		
+<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" id="FeaturedFlashIntro" align="middle" height="0" width="0">
+<param name="allowScriptAccess" value="always">
+<param name="movie" value="/flash/flashrat.swf">
+<param name="quality" value="high">
+<param name="bgcolor" value="#ffffff">
+<param name="hidden" value="true">
+<embed src="/flash/flashrat.swf" hidden="true" quality="high" bgcolor="#FFFFFF" name="FeaturedFlashIntro" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" align="middle" height="0" width="0">
+</object>
+
+</body>
+
+
+<script type="text/JavaScript">
+setJS();
+</script>
+
+</html>

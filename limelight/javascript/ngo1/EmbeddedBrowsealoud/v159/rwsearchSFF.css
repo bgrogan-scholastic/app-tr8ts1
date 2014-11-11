@@ -1,0 +1,192 @@
+/*common*/
+.rwPopupOutline
+{
+	background-color:	#ece9d8;
+	cursor:			default;
+	font-family:		Verdana,inherit;
+	font-size:		12px;
+	color:			#000000;
+	padding:		0;
+	width:			300px;
+}
+
+
+.rwPopupContent
+{
+	vertical-align:		top;
+	cursor:				default;
+	font-family:		Verdana,inherit;
+	font-weight:        normal;
+	color:				#000000;
+	text-align:         left;
+	
+	height:				200px;
+    	overflow:            auto;
+	
+	
+	padding-left:			6px;
+	padding-top:			6px;
+	padding-bottom:			6px;
+	border-top:		1px solid #0218af;
+	border-left:		2px solid #0218af;
+	border-right:		2px solid #0218af;
+	border-bottom:		2px solid #0218af;
+}
+
+
+
+/*Display screen*/
+#rwDisplay
+{
+    z-index: 500;
+    left: 0;
+    position: absolute;
+    top: 0;
+    overflow:auto;
+    visibility:hidden;
+}
+
+.rwToolbarCaptionDisplay
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwcaption.gif);
+	padding:			0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+
+/*Translator screen*/
+#rwTrans
+{
+    z-index: 500;
+    left: 0;
+    position: absolute;
+    top: 0;
+    overflow:none;
+    visibility:hidden;
+}
+
+.rwToolbarCaptionTrans
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwTransCaption.gif);
+	padding:			0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+.rwToolbarSpanCaptionTrans
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwTransSpanCaption.gif);
+	padding:			0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+
+/*Fact finder*/
+#rwFF
+{
+    z-index: 500;
+    left: 0;
+    position: absolute;
+    top: 0;
+    visibility:hidden;
+}
+
+.rwToolbarCaptionFF
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwFFcaption.gif);
+	padding:			0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+
+/* Dictionary*/
+#rwDict
+{
+    z-index: 500;
+    left: 0;
+    position: absolute;
+    top: 0;
+    visibility:hidden;
+}
+
+
+.rwToolbarCaptionDict
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwDictCaption.gif);
+	padding:			0;
+	padding-left:		0;
+	padding-right:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+.rwToolbarSpanCaptionDict
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwDictSpanCaption.gif);
+	padding:			0;
+	padding-left:		0;
+	padding-right:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+.rwDictWordHeader
+{
+	font-size:150%;
+	font-weight: bold;
+	padding-bottom: 3px;
+	border-bottom: 1px solid #666666;
+	margin-bottom: 10px;
+}
+
+
+.rwMeaning
+{
+	padding-right: 10px;
+}
+
+.thExpression
+{
+	padding-right: 10px;
+	font-style: italic;
+}
+
+
+.rwMeaningNum
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+}
+     

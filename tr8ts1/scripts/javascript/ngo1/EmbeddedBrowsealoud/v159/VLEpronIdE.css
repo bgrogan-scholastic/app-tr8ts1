@@ -1,0 +1,85 @@
+.create
+{
+	position:absolute;
+	left:110px;
+	top:100px;
+	width:220px;
+	border: 2px solid #0067f1;
+}
+
+.tblCreate
+{
+	font: 11px arial;
+}
+
+.input
+{
+	font: arial;
+	font-size:7pt;
+}
+
+.tblProns
+{
+	font: 11px arial;
+}
+
+td.dashed
+{
+	border-right: 1px dashed #aaa;
+}
+
+.create_bar
+{
+	background-image: url(vleimgs/create-caption.gif);
+	left:110px;
+	top:100px;
+	width:220px;
+	height: 25px;
+	font: 7px arial;
+}
+
+.create_edit
+{
+	position:absolute;
+	left:110px;
+	top:100px;
+	width:664px;
+	border: 2px solid #0067f1;
+	font: 7px arial;
+}
+
+.create_edit_nimas
+{
+	position:absolute;
+	left:110px;
+	top:100px;
+	width:665px;
+	border: 2px solid #0067f1;
+	font: 7px arial;
+}
+
+.create_edit_bar
+{
+	background-image: url(vleimgs/create_edit-caption.gif);
+	left:110px;
+	top:100px;
+	height: 25px;
+	font: 7px arial;
+}
+
+td.message
+{
+	font: 11px arial;
+	color: red;
+}
+
+.pronList
+{
+	overflow: auto; 
+	height: 150px;
+	border-left: 1px #c9c7b8 solid;
+	border-bottom: 1px #c9c7b8 solid;
+	padding:0px; 
+	margin: 0px;
+	scrollbar-base-color: #c9c7b8; /* NOT SUPPORTED BY FIREFOX */
+}

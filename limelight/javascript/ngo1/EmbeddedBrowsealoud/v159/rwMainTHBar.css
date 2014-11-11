@@ -1,0 +1,58 @@
+#rwDrag
+{
+	z-index: 		499;
+	left: 			0;
+	position: 		absolute;
+	top: 			0;
+}
+
+.rwToolbarOutline
+{     
+	cursor:			default;
+	font-family:		Verdana,inherit;
+	font-size:		10px; 
+	color:			#000000;
+	padding:		0;
+	width:			200px;
+	visibility:		hidden;
+	display:		none;
+}
+
+.rwToolbarCaption
+{
+	height:			21px;
+	background-image:   	url(rwimgs/caption-texthelp1.gif);
+	cursor: 		move;
+	padding:		0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:			#ffffff;
+	font-weight:		bold;
+	font-size:		10px;
+}
+
+.rwToolbarBar
+{
+	/* ADDED CMC 14/04/2008 */
+	background-color:	#ece9d8;
+	border-top:		0px solid #081c73;
+	border-left:		2px solid #081c73; 
+	border-bottom:		2px solid #081c73; 
+	border-right:		2px solid #081c73;
+	
+	vertical-align:		top;
+	padding-top:		2px;
+	padding-bottom:		1px;
+	padding-left:		2px;
+	cursor:			default;
+	font-family:		Verdana,inherit;
+	font-size:		10px; 
+	color:			#000000;
+}
+
+.rwIcon
+{
+	margin-left:		0;
+	margin-right:		0;
+	margin-top:		0;
+}

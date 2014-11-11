@@ -1,0 +1,72 @@
+BODY { 
+		font-family: arial, helvetica; 
+		background-color:  #eeeeee;
+		font-size: .8em;
+	}
+
+	a:link {
+		font-family: Arial, Helvetica, Geneva, SunSans-Regular;
+      color: #2266aa;  
+      line-height: 1.2em; 
+   }			
+
+	a:hover {
+		background-color: #9999bb;
+		color: #330099;
+	}
+				 	
+	a:active {
+		font-family: Arial, Helvetica, Geneva, SunSans-Regular;
+      color: #2266aa;  
+      line-height: 1.2em; 
+   }
+
+	a:visited {
+		font-family: Arial, Helvetica, Geneva, SunSans-Regular;
+      color: #bb3399;  
+      line-height: 1.2em; 
+   }
+			
+	H1 {
+		font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular;
+      font-size: 1.75em;
+      font-weight: bold;
+      color: #2266aa;  
+      vertical-aline: top;
+   }
+
+	H2 {
+		font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular;
+      font-size: 1.05em;
+      font-weight: bold;
+      vertical-aline: top;
+   }
+
+  H3 {
+		font-family: Arial, Helvetica, Geneva, Swiss, SunSans-Regular;
+      font-size: 10;
+      font-weight: bold;
+      vertical-aline: top;
+	}
+
+	.mainhead { 
+		text-align: center;
+		font-size: 2em;
+		line-height: 2em;
+		font-weight: 600;
+		color: #2D2D89;
+	}
+	.WHITE { background-color: white; }
+	TABLE {
+		font-family: arial, helvetica; 
+	}
+	TD { 
+		font-family: arial, helvetica; 
+		font-size: .8em;
+	}
+
+.code {  
+  font-family: "courier new", courier, monospace;
+  font-size: 1em;
+  color: #000000;
+  }

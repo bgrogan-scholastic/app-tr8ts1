@@ -1,0 +1,6 @@
+#!/bin/sh
+
+export PYTHONPATH="/data/go2-passport/scripts/python/common:/usr/local/lib/python2.3/site-packages"
+
+python2.3 golb.py --name=gme --logfile=/data/stage/utils/gme3/updates/logs/gme_loadbalancer --xmlfile=/data/stage/utils/go2/updates/lb.xml
+

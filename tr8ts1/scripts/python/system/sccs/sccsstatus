@@ -1,0 +1,131 @@
+#!/usr/local/bin/python
+
+##############################################
+# Author: Todd Reisel
+# Program: sccsstatus
+# Date: April, 28th, 2004
+# Description: Check to see which files are checked out
+#                 and which files have never been checked
+#		  in for a given workspace.
+##############################################
+
+import os;
+from os import path;
+import sys;
+import pwd;
+
+#files checked out or never checked in by username.
+_userFiles = {};
+
+#files that produced errors when looking up the user name in the password file.
+_passFileErrors = [];
+
+#what directories should be removed from our sccs status check.  These directories don't contain code.
+_namesToRemove = ['SCCS', 'delete_files', 'targets', 'Codemgr_wsdata', 'SunWS_cache'];
+
+def visitDirectory(arg, dirname, names):
+	for x in _namesToRemove:
+		try:
+			names.remove(x);
+		except ValueError, message:
+			pass;
+
+	
+	for x in names:
+		#check to make sure the file does not contain one of these special cases.
+		if os.path.isfile(os.path.join(dirname, x)) and not x.startswith('s.') and not x.startswith(',') and not x.endswith('.pyc') and not x.endswith('.o') and not x.endswith('freeze') and not x.endswith('%') and not x.endswith('#') and not x.endswith('.bak') and not x.endswith('~'):
+			
+			#the name of the working file
+			sourceFile = os.path.join(dirname, x);
+			
+			#the name of the sccs file if its been checked in.
+			sccsFile = os.path.join(os.path.join(dirname, 'SCCS'), 's.' + x);
+			
+			#the name of the sccs lock file if its checked out.
+			sccsCheckedoutFile = os.path.join(os.path.join(dirname, 'SCCS'), 'p.' + x);
+		
+			#is the file executable? if it is don't include it in the list
+			if not os.access(sourceFile, os.X_OK):
+				#check to see if this file has never been checked in.
+				if os.path.exists(sourceFile) and not os.path.exists(sccsFile):
+					addUserFiles(getUser(sourceFile), 'Files Never Checked In', sourceFile);
+					#print "File Never Checked In - " + sourceFile + " - owned by " + getUser(sourceFile);
+				
+				#check to see if this file is still checked out.
+				elif os.path.exists(sourceFile) and os.path.exists(sccsCheckedoutFile):
+					addUserFiles(getUser(sourceFile), 'Files Checked Out', sourceFile);
+					#print "File Checked out - " + sourceFile + " - owned by " + getUser(sourceFile);
+
+
+def addUserFiles(userName, checktype, filePath):
+	if not _userFiles.has_key(userName):
+		_userFiles[userName] = {}
+		_userFiles[userName]['Files Checked Out'] = [];
+		_userFiles[userName]['Files Never Checked In'] = [];
+
+	_userFiles[userName][checktype].append(filePath);
+
+#get the owner of this file.
+def getUser(filePath):
+	fileInfo = os.stat(filePath);
+                                                                                                                             
+	user = '';
+	try:
+		pwdInfo = pwd.getpwuid(fileInfo[4]);
+		user = pwdInfo[0];
+	except KeyError, message:
+		_passFileErrors.append([fileInfo[4], filePath])
+		#print "Unknown uid in passwd file: " + str(fileInfo[4]) + " for file: " + filePath;
+	
+	return user;
+
+
+#the main program
+if __name__ == '__main__':
+	if len(sys.argv) < 3:
+		print "sccsstatus <workspace> <username/all>";
+	else:
+		os.chdir('/export/home/' + sys.argv[1]);
+		path.walk('/export/home/' + sys.argv[1], visitDirectory, '');
+	
+		if len(_passFileErrors) > 0:
+			print "--------------------------------------------------------------------------------";
+			print "	These uids could not be found in the passwd file.	       ";
+			for x in _passFileErrors:
+				print "Uid: " + str(x[0]) + " for file: " + x[1];
+	
+		print "--------------------------------------------------------------------------------";
+	
+		myUserFiles = [];
+	
+		
+		if sys.argv[2] == 'all':
+			#display the status information for all users in a workspace.
+			myUserFiles = _userFiles.keys();
+		else:
+			#display the status information for the current user in a workspace.
+			try:
+				temp = _userFiles[sys.argv[2]];
+	
+				myUserFiles = [sys.argv[2]];
+			except KeyError, message:
+				#this user currently has no checked out or never checked in files.
+				print "User: " + sys.argv[2] + " has no files that are not checked out."
+				print "User: " + sys.argv[2] + " has no files that have never been checked in."
+	
+		#for each user, loop through their list of files.
+		for x in myUserFiles:
+			if x == '':
+				#a username could not be found for this user, this is a catchall bucket.
+				print "User: unknown - password file does not contain uid";
+			else:	
+				print "User: " + x;
+	
+			for y in _userFiles[x]:
+				if len(_userFiles[x][y]) != 0:
+					print "\t" + y;
+				
+					for z in _userFiles[x][y]:
+						print "\t\t" + z;
+				print "";
+

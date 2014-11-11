@@ -1,0 +1,30 @@
+.sticky_note {
+    position: fixed !important;
+    position: absolute !important;
+
+    line-height: 20px;
+    left: 110px;
+    top: 110px;
+
+    background: url( "sticky_bg.gif" );
+    width: 300;
+}
+
+.sticky_textarea {
+    font-family: Arial, Verdana, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 280px;
+    height: 200px;
+    font-weight: normal;
+    background: #fffbba;
+    border: 0px solid 0px;
+    overflow: auto;
+
+    margin: 10px;
+    border: inset 1px #aaaaa8;
+}
+
+.sticky_bar {
+    text-align: right;
+    padding: 4px;
+}

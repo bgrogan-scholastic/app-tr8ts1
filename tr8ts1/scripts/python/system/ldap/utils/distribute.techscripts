@@ -1,0 +1,6 @@
+#!/bin/csh
+
+setenv PYTHONPATH "/data/techsvs/scripts/python:/data/techsvs/scripts/python/common"
+
+python2.3 GI_LdapSyncTechScripts.py
+

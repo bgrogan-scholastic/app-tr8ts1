@@ -1,0 +1,6 @@
+/*Amit Added the width for home image.*/	
+#leftimage {
+float:right;
+width: 350px;
+margin-right: 700px;
+}

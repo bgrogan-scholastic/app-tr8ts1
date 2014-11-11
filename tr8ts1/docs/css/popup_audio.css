@@ -1,0 +1,105 @@
+
+
+	#audio_player_div h1 {
+	color: #000000;
+	font-family:arial,sans-serif;
+	text-align:center;
+	font-size: 30px;
+	font-weight: bold;
+	//margin-left: 40px;
+	//padding-top: 12px;
+	line-height: 110%;
+	}	
+		
+	#audio_player_div p{
+	text-align: center;
+	margin-left: 40px;
+	line-height: 120%;
+	}
+	
+.pdfButton {
+    left: 610px;
+    line-height: 100%;
+    margin-left: 40px;
+    margin-top: 0;
+    position: absolute;
+    top: 0px;
+}
+	#flashDiv{
+	text-align:left;	
+	}	
+	#pdfContent{
+	text-align:right;
+	
+	}	
+	#cboxClose {    
+    display: none;   
+	}
+
+	.lyrics{
+	list-style-type:none;
+	text-align:center;
+	font-family:arial,sans-serif;
+	font-size: 22px;
+	
+	}
+	
+.closeButton{
+text-align: center;
+margin-top:75px;
+font-family:arial,sans-serif;
+}
+
+.closeButton a{
+	text-decoration: none;
+	color: #0000cc;
+}
+
+.closeButton a:hover { text-decoration: underline; }
+
+.closeButton a:visited {
+	text-decoration: none;
+	color: #9966CC;
+}	
+	
+h1.lyricstitle { 
+	font-family: arial; 
+	color: #000; 
+	font-size: 34px; 
+	text-align: center; 
+	line-height: 100%;
+}
+
+
+h3.subtitle { 
+	font-family: arial; 
+	color: #000; 
+	font-size: 22px; 
+	font-style: italic; 
+	font-weight: normal; 
+	text-align:center; 
+}
+
+
+p.lyrics { 
+	font-family: arial; 
+	color: #000; 
+	line-height: 160%; 
+	font-size: 24px;
+}
+
+
+.lyrics {
+	text-align: center;
+}
+
+
+li {
+	margin: 0px;
+	padding: 0px;
+}
+
+ul {
+	margin: 0px;
+	padding: 0px;
+}

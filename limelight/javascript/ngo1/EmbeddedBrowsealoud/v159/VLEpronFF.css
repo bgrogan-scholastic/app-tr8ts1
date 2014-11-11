@@ -1,0 +1,128 @@
+#rwPronCreate
+{
+	position:absolute;
+	width:220px;
+	border: 2px solid #0067f1;
+}
+
+#rwPronEdit
+{
+	position:absolute;
+	width:660px;              /*ie 664*/
+	border: 2px solid #0067f1;
+}
+
+.rwPronContent
+{
+	font: 10px arial;
+	background-color:#ECE9D8;
+	color:black;
+	padding:0px;
+	margin: 0px;
+	border: 0px;
+	cursor: default;
+	text-align:left;
+	vertical-align:baseline;
+}
+
+
+#rwDragMePronCreate
+{
+	background-image: url(vleimgs/create-caption.gif);
+	height: 25px;
+}
+
+#rwDragMePronEdit
+{
+	background-image: url(vleimgs/create_edit-caption.gif);
+	height: 25px;
+}
+
+
+
+.tblProns
+{
+	font: 11px arial;
+}
+
+td.dashed
+{
+    
+	border-right: 1px dashed #aaa;
+}
+
+
+
+.pronList
+{
+	overflow: auto; 
+	height: 150px;
+	border-left: 1px #c9c7b8 solid;
+	border-bottom: 1px #c9c7b8 solid;
+	padding:0px; 
+	margin: 0px;
+}
+
+.rwPrScreen div
+{
+
+}
+
+#proneditlist
+{
+    margin-left:7px;
+    margin-top:5px;
+    margin-right:5px;
+    margin-bottom:5px;
+
+}
+
+.rwPrScreen
+{
+	font: 10px arial;
+}
+
+.rwPrScreen table
+{
+	font: 10px arial;
+    border:0px;
+}
+
+.rwPrScreen tr
+{
+	font: 10px arial;
+    border:0px;
+}
+
+.rwPrScreen td
+{
+	font: 10px arial;
+    border:0px;
+}
+
+.rwPrScreen input
+{
+	font: 10px arial;
+}
+
+.rwPrScreen span
+{
+	font: 10px arial;
+}
+
+.rwPrScreen img
+{
+
+}
+
+.rwPrScreen a
+{
+	font: 10px arial;
+}
+
+
+
+.rwPrScreen .message
+{
+	color: red;
+}

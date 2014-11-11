@@ -1,0 +1,12 @@
+<!-- begin: common.php -->
+
+var myDomain = ".grolier.com";
+window.focus();
+<?php require_once($_SERVER['INCLUDE_HOME'] . '/javascript/common/sniffer.js'); ?>
+<?php require_once($_SERVER['INCLUDE_HOME'] . '/javascript/common/browsercheck.js'); ?>
+<?php require_once($_SERVER['INCLUDE_HOME'] . '/javascript/graphical/popup.js'); ?>
+<?php require_once($_SERVER['INCLUDE_HOME'] . '/javascript/common/back.js'); ?>
+<?php require_once($_SERVER['INCLUDE_HOME'] . '/javascript/common/cookies.js'); ?>
+
+
+<!-- end: common.php -->

@@ -1,0 +1,38 @@
+<!--staticWebLinks.dtd-->
+
+<!ELEMENT links (config,products)>
+	<!-- validate the configuration information in the xml file -->
+	<!ELEMENT config (savelocations, email)>
+		<!ELEMENT savelocations (savelocation+,ftpsavelocation+)>
+
+			<!-- multiple save locations can be specified for both savelocations and ftpsavelocations-->
+			
+			<!ELEMENT savelocation (#PCDATA)>
+				<!ATTLIST savelocation method CDATA #REQUIRED>
+				<!ATTLIST savelocation directory CDATA #REQUIRED>
+				<!ATTLIST savelocation filename CDATA #REQUIRED>
+			<!ELEMENT ftpsavelocation (#PCDATA)>
+				<!ATTLIST ftpsavelocation method CDATA #REQUIRED>
+				<!ATTLIST ftpsavelocation directory CDATA #REQUIRED>
+				<!ATTLIST ftpsavelocation filename CDATA #REQUIRED>
+				<!ATTLIST ftpsavelocation server CDATA #REQUIRED>
+				<!ATTLIST ftpsavelocation username CDATA #REQUIRED>
+				<!ATTLIST ftpsavelocation password CDATA #REQUIRED>
+				
+			<!ELEMENT email (#PCDATA)>
+				<!ATTLIST email server CDATA #REQUIRED>
+				<!ATTLIST email from CDATA #REQUIRED>
+				<!ATTLIST email to CDATA #REQUIRED>
+				<!ATTLIST email subject CDATA #REQUIRED>
+
+	<!-- validate the products section of the xml file -->
+	<!ELEMENT products (product)+>
+		<!ELEMENT product (features)>
+			<!ATTLIST product name CDATA #REQUIRED>
+			<!ELEMENT features (feature)+>
+				<!ELEMENT feature (directories)>
+					<!ATTLIST feature name CDATA #REQUIRED>
+					<!ELEMENT directories (directory)+>
+						<!ELEMENT directory (#PCDATA)>
+							<!ATTLIST directory location CDATA #REQUIRED>
+							<!ATTLIST directory pattern CDATA #REQUIRED>

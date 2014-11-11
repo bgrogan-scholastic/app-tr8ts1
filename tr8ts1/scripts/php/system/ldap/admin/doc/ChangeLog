@@ -1,0 +1,291 @@
+$Header: /cvsroot/phpldapadmin/phpldapadmin/doc/ChangeLog,v 1.15 2004/05/11 12:25:23 uugdave Exp $
+
+* Version 0.9.4b, 2004-05-11
+
+ * Notes:
+    
+    This follow-on release fixes one critical bug contained in 0.9.4 
+    relating to session.auto_start and schema caching.
+
+ * Changes
+
+   - Fixed bugs (all duplicates of single bug):
+     947981
+     951003
+     951140
+   - Fixed binary attribute creation (create.php)
+
+* Version 0.9.4a, 2004-05-08
+
+ * Notes:
+ 
+    This follow-on release fixes several critical bugs contained in 0.9.4.
+
+ * Changes:
+
+   - Fixed bugs:
+     949500  Error while adding New User Account
+     949500  Creating a new uid under ou=People
+     948695  is_executable() error using phpldapadmin - windows
+     948741  Level: E_WARNING
+     948413  Undefined variable: lang (E_NOTICE) after install   
+	
+* Version 0.9.4, 2004-05-04
+
+ * Notes:
+    
+    This release adds many new features and fixes many minor bugs.
+    General performance has improved, especially for handling large data
+    sets. Of particular note is that users can page through search results, 
+    flag individual attributes as read-only, view in-line jpegPhotos in 
+    search results, export DSML, all from the comfort of their own language. 
+    phpLDAPadmin is now availble in 11 languages.
+
+ * Changes:
+   - Fixed bug 936223 by adding more robust error-handling to the binary
+       attr viewing code.
+   - Improved support for Microsoft Active Direcotry
+       Added many new icons and logic to detect "special" Active Directory
+       objects.
+       Fixed a bug which prevented phpLDAPadmin's tree viewer from
+       properly browsing an Active Directory.
+   - Improved support for Novell eDirectory
+       Added many new icons and logic to detect Novell eDirectory (NDS)
+       entries.
+   - Enhanced export form
+       Users can specify the type of export, line ends, search scope, and more
+       from one handy form similar in appearance to phpMyAdmin export forms (though
+       more simple). As a result, I cleaned up the links at the top of the default
+       mod template (removed mac | win | unix links, for example).
+   - Cleaned up the entry browser link
+       It now better aligns itself with neighboring form elements.
+   - Fixed several E_NOTICE bugs
+   - Added paging to search results    Search results are now paged into groups
+       of 50 entries and users can step through the pages like Google. This is not
+       only a nicety, but with large searches users may have waited for hours for
+       their browser to render all the entries. That problem is fixed by paging.
+   - DNs are pretty-printed
+       DNs in the tree viewer and else-where are now "syntax-highlighted".
+   - Faster schema surfing
+       You can "jump to" schema elements without rendering all other elements in
+       the schema browser. This is a major speed enhancement.
+   - Configurable: hide "Create new"
+       Thanks to a patch from Deon George, users can hide the "create new" link in the
+       tree viewer if desired.
+   - DSML exports
+   - Various XHTML fixes supplied by Uwe Ebel.
+   - More binary safety:
+       get_object_attrs() is now completely binary safe. Developers can use it to
+       fetch jpegPhotos and any other binary data.
+   - Re-order the search criteria menu
+       Users can re-order the search criteria drop-down box (for simple search
+       form) as desired from the config.
+   - Obfuscated passwords with ****
+       Users can configure PLA to display userPasswords as ****** if desired.
+   - Tree browser displays child counts
+       We found a fast solution to display child counts below each node without
+       having to expand the node in the tree viewer. Works great.
+   - "Used by" hyperlinks
+       The "used by" list in matching rules are now hyper-linked to attributes in
+       the schema viewer.
+   - jpegPhotos in the search results.
+       When a search result includes jpegPhotos, they will be displayed inline
+       with other attributes. Very handy for address books!
+   - We can draw any jpeg now
+       Modified the infrastrucutre to draw any jpegPhoto attribute, regardless of
+       its name.
+   - Added a groupOfNames template
+       For editing groupOfNames and groupOfUniqueNames
+   - Fixes to the entry browser
+       The entry browser can be clicked and closed before it's finished loading
+   - Read-only attributes
+       Users can now mark certain attributes as read-only, and PLA will refuse to
+       modify them (ie, objectClasses) and display them without form input fields. 
+   - Configurable handling of aliases and referrals
+       Admins can configure how phpLDAPadmin should handle aliases and
+       referrals with fine-grained control.
+   - Schema caching
+       Network traffic between the web server and LDAP server has been reduced
+       drastically and user page loads should run much faster thanks to a
+       two-level session-based and memory-based schema cache.
+   - Low bandwidth mode
+       Users who have a slow link between their LDAP server and web server can
+       run phpLDAPadmin in low-bandwidth mode to discourage excessive network
+       traffic.
+   - Fixed DN explosion
+       A bug in PHP's LDAP API caused common segmentation faults in
+       ldap_explode_dn(). We have re-implemented this function in PHP and have
+       eliminated all segmentation faults.
+   - Almost complete localization
+       phpLDAPadmin is 100% internationalized with the exception of creation
+       templates, available in 11 languages.
+   - Added support for IBM LDAP and ISODE M-Vault LDAP servers.
+   - Linkable displayed DNs
+       When a user views an attribute that contains a DN, an arrow will appear
+       to the left side. When clicked, the user is taken to the referenced DN.
+   - Recursive copy fliters
+       When users copy a sub-tree, they may apply a filter to the copy such
+       that only entries that match the filter will be copied. 
+   - Auto uidNumber enhancements
+       Admins can now specify a DN to bind with when auto-searching for the next
+       available uidNumber.
+   - Schema code cleanups
+       Applied object-oriented inheritance to schema items and cleaned up
+       access functions. No affect on end user, just a developers' itch.
+   - Custom creation template usability enhancements
+   - Fixed session bugs
+       If PHP is auto-starting sessions, we will not throw errors anymore.
+   - Added new auth_type: http
+       Users can now use http auth_types for form-based logins. Their
+       DN/password will be stored on the server in memory rather than in 
+       a cookie on the client.
+   - TLS fixes
+       More robust coverage. If users have configured 'tls' = true in
+       config.php, we use TLS for all transactions with the LDAP
+       server.
+   - Error handling fixes
+       pla_verbose_error() is more tolerant of crappy input (ie, bad LDAP
+       error codes).
+   - Cleaned up default mod template
+       Editing entries is now much cleaner-looking. Buttons at the top are
+       in two columns. The browser doesn't have to be full-screen anymore
+       to edit an entry.
+   - Minor cosmetic fixes to custom creation template
+   - Added phpDoc commentary to all functions in functions.php and
+       schema_functions.php, and export_functions.php. This allows us to 
+       auto-doc the code using phpDocumentor.
+
+* Version 0.9.3, 2003-12-19
+
+ * Notes:
+    This release focused almost entirely on finding and fixing bugs. 
+    The schema viewer has also been streamlined to save bandwidth (and several
+    endangered species), while template configuration has been moved to its
+    own file located in the templates directory. Over all, phpLDAPadmin has
+    been made more solid thanks to testing and reporting by hundreds of users.
+    Thansk for all your reports! Special thanks goes out to Matt Perlman for
+    the IBM work-around and Uwe Ebel for the enhanced schema viewer.
+ * Changes:
+    As this was primarily a bug-fix release, here's the list of significant
+    fixes:
+   	862225 an E_NOTICE on delete fixed
+	861730 (and many duplicates of it) an E_NOTICE on determining the
+           language in 'auto' lanuage mode for browsers who don't
+           set HTTP_ACCEPT_LANGUAGE (like Opera).
+    861491 (and many duplicates of it) Anonymous form-based logins 
+           often failed due to several E_NOTICE problems.
+    856832 IBM LDAP servers refernece SUP attributes by OID, not name.
+           A patch was provided to accomodate this circumstance.
+    860179 Another anonymous form-based login bug.
+    858611 (lots of dups of this one) Fixed the error handler so that
+           it will not cause a "cannot send header information" message.
+    844547 A coulpe E_NOTICE bugs in the posix group creation template.
+    841816 An E_NOTICE bug during creation of an entry.
+    844340 A sprintf error during login
+   - Many many more bug fixes.
+   - The schema viewer was also streamlined.
+   - Support work-around for IBM LDAP Server was added.
+   
+* Version 0.9.2, 2003-11-14
+
+  * Notes:
+    This release has undergone major code hardening as we've subjected it to 
+    the most stringent standard of PHP error reporting. The result is 
+    fewer unhandled errors, improved usability, and better performance.
+    We've given more attention to internationalization as well, 
+    and that effort is nearly 80% complete. Translators and coders are still 
+    needed to help complete the localization effort. We've added a whole new
+    custom callback infrastructure that is event driven. Users can write their 
+    own custom code to be executed as the result of LDAP events. Events include
+    entry creation, entry deletion, and entry modification. Users can define
+    custom code to execute automatically before and after each of these events.
+    See "custom_functions.php" for details and documentation. Lots of other new
+   features and bug fixes are outlined in the ChangeLog. phpLDAPadmin finally
+    has a roadmap included with each release. Find it in the file called "ROADMAP"
+    in the root of the install. This roadmap will be constantly updated to 
+    list our goals for each release. Enjoy 0.9.2! As always, your feedback
+    is most welcome on the development mailing list and on the SourceForge
+    bug tracker.
+  
+  * Changes:
+    - Localization work continues. About 80% complete.
+    - New languages: Ialian, German, Catala
+    - Fixed major encoding bugs. All pages are now true UTF-8 encoded
+    - Support for auto-determining user's language based on the browser
+    - Custom event callbacks infrastructure (see custom_functions.php). Users can now 
+        define custom code to execute as a result of LDAP events (ie, new entries, 
+        modifications, etc).
+    - Major code cleanup. Removed all E_NOTICE messages and enabled E_ALL error_reporting.
+    - Added support for smd5 and ssha passwords
+    - Added configurable hints throughout the application
+    - Added template-based entry editing. The infrastructure is now in place to use custom 
+        templates for editing LDAP entries. No templates are being shipped with 0.9.2, but 
+        they are on the way for 0.9.3.
+    - Added photo display support for non-jpegPhoto photo attributes.
+    - Added mass deletion. If enabled in the configuration, users can mass-delete multiple 
+        entries from the tree browser with checkboxes.
+    - Much improved schema retrieval code. Now PLA uses the Root DSE (or any relevant DN) 
+        to fetch the schema based on the RFC-complian subSchemaSubEntry value.
+    - Added support for viewing schema for attributes with ";" in their names (like 
+        userCertificate;binary or sn;lang-fr)
+    - Schema code is 100% object oriented.
+    - Enhanced search code can handle large searches without running out of memory.
+    - Fixed minor XSS vulnerabilities in several creation templates.
+    - Enhanced the server information viewer to actively retrieve attributes that the server 
+        may not give voluntarily.
+    - Made the tree viewer more intelligent for failed binds.
+    - Added better caching of the base DN for the tree viewer, which speeds up page loads 
+        considerably with multiple servers all configured to auto-determine the base DN.
+    - Added intelligence around password updates on the currently logged-in user entry.
+
+* Version 0.9.1, 2003-09-24
+
+  * Notes:
+    We fixed a mountain of bugs for this release and implemented the 
+    most popular feature requests.  The result is a much more robust LDAP
+    management tool that supports a wider range of harsh environments and spoken
+    languages. This release was over a month in the making and it shows. We've
+    had great feed back from users.  Special thanks to Nick Burch, Xavier
+    Renard, Uwe Ebel, Schuller Tom, and Marius Reider for their code
+    contributions. Thanks to everyone who contributed code and bug reports! 
+
+  * Changes:
+    - Preliminary support for LDIF imports.
+    - Binary attribute support for viewing, deleting, and adding.
+    - Users can specify attributes to hide while editing entries.
+    - Schema browser now displays which objectClasses each attribute is used in.
+    - Preliminary multi-language support (some localization, infrastructure in place).
+    - New template for creating posixGroup entries.
+    - Optional read-only mode of operation.
+    - Error dialog beautified.
+    - Localization effort begun, now available in German and French.  
+    - New samba user template.
+
+  * Bugs fixed:
+    - I18n support was made more robust (UTF-8 problems fixed in *many* places).
+    - Improved LDIF exports with better LDIF comments and cleaner IE support.
+    - Cleaned up code in edit.php.
+    - After updates, modified attribute(s) now highlighted properly.
+    - Many realpath() fixes to allow symlink installs with multiple configs.
+    - Simple search form 'Starts with' '*' searches produced PHP error.
+    - Entry creation now adds the new entry to the tree browser in sorted order.  
+    - Complete re-work of schema browser, much more efficient parser.
+    - Began effort to remove all E_NOTICE notices. 
+
+* Version 0.9.0, 2003-08-12
+
+  * Notes:
+    This is the first release of phpLDAPAdmin. It should be stable enough and
+    ready for use on your production LDAP servers. This is still a beta release
+    and the paranoid may want to wait.  phpLDAPAdmin is based on an improved
+    version of DaveDAP 0.8.4.
+
+  * Changes:
+    phpLDAPAdmin was DaveDAP. Changes since DaveDAP 0.8.4 include:
+
+    - Better LDAP compliance when copying entries.
+    - Fixed boolean attribute support.
+    - jpegPhoto scaling when necessary.
+    - More robust schema browser.
+    - Added internal attributes support.
+    - Slightly improved look and feel.

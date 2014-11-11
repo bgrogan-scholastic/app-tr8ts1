@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collective grade="" type="0c">
+   <id src_product_id="ngo" type="0c" uid="10236793">10002788</id>
+   <title>Wild West</title>
+   <watch_it>
+      <image>
+         <id src_product_id="ngo" type="0mip" uid="10236832">10002788pwi</id>
+         <alt_text>Watch It Image for Wild West</alt_text>
+      </image>
+      <anchor_video>
+         <id src_product_id="ngo" type="0uv" uid="10236831">10002788van</id>
+         <title>Anchor Video for Wild West</title>
+      </anchor_video>
+   </watch_it>
+   <browse>
+      <id src_product_id="ngo" type="0mip" uid="10236830">10002788pbr</id>
+      <title>Browse Image for Wild West</title>
+   </browse>
+   <blurb>Countless tales have been told about the colorful characters who settled America&amp;#x2019;s Western frontier in the late 1800s. But what was life really like in the Wild West?</blurb>
+   <read_it>
+      <image>
+         <id src_product_id="ngo" type="0mip" uid="10236834">10002788pri</id>
+         <alt_text>Read It Image for Wild West</alt_text>
+      </image>
+   </read_it>
+   <survey_articles>
+      <article language="en" level="1">
+         <id src_product_id="ngo" type="0ta" uid="10236794">10002789</id>
+         <title>Wild West</title>
+      </article>
+      <article language="en" level="2">
+         <id src_product_id="ngo" type="0ta" uid="10236796">10002791</id>
+         <title>Wild West</title>
+      </article>
+      <article language="en" level="3">
+         <id src_product_id="ngo" type="0ta" uid="10236797">10002792</id>
+         <title>Wild West</title>
+      </article>
+      <article language="es" level="1">
+         <id src_product_id="ngo" type="0ta" uid="10236795">10002790</id>
+         <title>El Salvaje Oeste</title>
+      </article>
+   </survey_articles>
+   <featured_assets>
+      <feature priority="1" type="0ul">
+         <id>10002818</id>
+         <title>The West in American Folklore</title>
+         <src_product>ngo</src_product>
+      </feature>
+   </featured_assets>
+   <topic sort_order="1">
+      <title>Home on the Range</title>
+      <topic_text>After the Civil War, settlers head west to build lives on the plains.</topic_text>
+      <topic_links>
+         <id src_product_id="ngo" type="0tet" uid="10236798">10002793</id>
+      </topic_links>
+      <image>
+         <id src_product_id="ngo" type="0mip" uid="10236835">10002788pt1</id>
+         <alt_text>Topic 1 Image for Wild West</alt_text>
+      </image>
+      <project>
+         <id src_product_id="ngo" type="0taj" uid="10236826">10002821</id>
+         <title>Dear Diary</title>
+      </project>
+      <subtopic component="non-article" sort_order="1">
+         <title>The Homestead Act of 1862</title>
+         <asset>
+            <id src_product_id="ngo" type="0tfm" uid="10236799">10002794</id>
+            <title>The Homestead Act of 1862</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="2">
+         <title>Laura Ingalls Wilder: Prairie Pioneer</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236800">10002795</id>
+            <title>Laura Ingalls Wilder: Prairie Pioneer</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236801">10002796</id>
+            <title>Laura Ingalls Wilder: Prairie Pioneer</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236802">10002797</id>
+            <title>Laura Ingalls Wilder: Prairie Pioneer</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="3">
+         <title>African Americans in the West</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236803">10002798</id>
+            <title>African Americans in the West</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236804">10002799</id>
+            <title>African Americans in the West</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236805">10002800</id>
+            <title>African Americans in the West</title>
+         </asset>
+      </subtopic>
+   </topic>
+   <topic sort_order="2">
+      <title>Law and Disorder</title>
+      <topic_text>Conflict and lawlessness are part of life in the Wild West.</topic_text>
+      <topic_links>
+         <id src_product_id="ngo" type="0tet" uid="10236806">10002801</id>
+      </topic_links>
+      <image>
+         <id src_product_id="ngo" type="0mip" uid="10236836">10002788pt2</id>
+         <alt_text>Topic 2 Image for Wild West</alt_text>
+      </image>
+      <project>
+         <id src_product_id="ngo" type="0taj" uid="10236827">10002822</id>
+         <title>Native American Issues</title>
+      </project>
+      <subtopic component="non-article" sort_order="1">
+         <title>Outlaws and Peacekeepers</title>
+         <asset>
+            <id src_product_id="ngo" type="0ul" uid="10236824">10002819</id>
+            <title>Outlaws and Peacekeepers</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="2">
+         <title>The Buffalo Soldiers</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236807">10002802</id>
+            <title>The Buffalo Soldiers</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236808">10002803</id>
+            <title>The Buffalo Soldiers</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236809">10002804</id>
+            <title>The Buffalo Soldiers</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="3">
+         <title>Crazy Horse and the Little Bighorn</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236810">10002805</id>
+            <title>Crazy Horse and the Little Bighorn</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236811">10002806</id>
+            <title>Crazy Horse and the Little Bighorn</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236812">10002807</id>
+            <title>Crazy Horse and the Little Bighorn</title>
+         </asset>
+      </subtopic>
+   </topic>
+   <topic sort_order="3">
+      <title>From Here to There</title>
+      <topic_text>Settling the West means moving goods and people over great distances.</topic_text>
+      <topic_links>
+         <id src_product_id="ngo" type="0tet" uid="10236813">10002808</id>
+      </topic_links>
+      <image>
+         <id src_product_id="ngo" type="0mip" uid="10236837">10002788pt3</id>
+         <alt_text>Topic 3 Image for Wild West</alt_text>
+      </image>
+      <project>
+         <id src_product_id="ngo" type="0taj" uid="10236825">10002820</id>
+         <title>Map of the West</title>
+      </project>
+      <subtopic component="article" sort_order="1">
+         <title>Cowboys and the Cattle Drives</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236814">10002809</id>
+            <title>Cowboys and the Cattle Drives</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236815">10002810</id>
+            <title>Cowboys and the Cattle Drives</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236816">10002811</id>
+            <title>Cowboys and the Cattle Drives</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="2">
+         <title>The Pony Express</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236817">10002812</id>
+            <title>The Pony Express</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236818">10002813</id>
+            <title>The Pony Express</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236819">10002814</id>
+            <title>The Pony Express</title>
+         </asset>
+      </subtopic>
+      <subtopic component="article" sort_order="3">
+         <title>The Transcontinental Railroad</title>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236820">10002815</id>
+            <title>The Transcontinental Railroad</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236821">10002816</id>
+            <title>The Transcontinental Railroad</title>
+         </asset>
+         <asset>
+            <id src_product_id="ngo" type="0ta" uid="10236822">10002817</id>
+            <title>The Transcontinental Railroad</title>
+         </asset>
+      </subtopic>
+   </topic>
+</collective>

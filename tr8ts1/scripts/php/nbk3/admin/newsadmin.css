@@ -1,0 +1,44 @@
+body,th,tr,td,a,input { 
+  font-family: Arial,sans-serif;
+  font-size: 10pt;
+}
+
+.warning {
+  color: red;
+  font-weight: 900;
+}
+
+.row1 {
+ background: #99CCFF;
+}
+
+.row2 {
+  background: #ffffff;
+}
+
+.row1go2 {
+ background: #bcbff0;
+}
+
+.row2go2 { 
+  background: #f3bc52;
+ }
+
+#frameleft {
+  border-left: #6c3d97 solid 2px;
+}
+
+#frameright {
+  border-right: #6c3d97 solid 2px;
+}
+
+.alltop {
+  color: #f3bc52;
+  background: #6c3d97;
+}
+
+.warning {
+  color: red;
+  font-weight: 900;
+}
+

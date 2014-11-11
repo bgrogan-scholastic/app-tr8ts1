@@ -1,0 +1,55 @@
+
+#rwDrag
+{
+    z-index: 499;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.rwToolbarOutline
+{
+	background-color:	#ece9d8;
+	border-top:			1px solid #0218af;  
+	border-left:		2px solid #0218af; 
+	border-right:		2px solid #0218af; 
+	border-bottom:		2px solid #0218af; 
+	cursor:				default;
+	font-family:		Verdana,inherit;
+	font-size:			10px; 
+	color:				#000000;
+	padding:			0;
+	width:				200px;
+    visibility:hidden;
+    display:none;
+}
+
+.rwToolbarCaption
+{
+	height:				21px;
+	background-image:   url(rwimgs/rwebookscaption.gif);
+	padding:			0;
+	padding-left:		0;
+	font-family:		Verdana,inherit;
+	color:				#ffffff;
+	font-weight:		bold;
+	font-size:			10px;
+	cursor:				default;
+}
+
+.rwToolbarBar
+{
+	vertical-align:		top;
+	padding:			2px;
+	cursor:				default;
+	font-family:		Verdana,inherit;
+	font-size:			10px; 
+	color:				#000000;
+}
+
+.rwIcon
+{
+	margin-left:		0;
+	margin-right:		0;
+	margin-top:			0;
+}

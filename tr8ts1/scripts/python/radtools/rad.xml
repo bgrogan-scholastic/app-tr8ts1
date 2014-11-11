@@ -1,0 +1,286 @@
+<!-- this level is only used to hierarchically show that all the following data falls under the rad tag -->
+<rad directory="/data/rad">
+
+	<!-- this contains a list of the supertemplate directories -->
+	<directories>
+		<directory name="supertemplates">
+		        <locations>
+	       		         <location name="delivered" dir="/export/home/##pcode##/delivery/templates"></location>
+	       		         <location name="canned" dir="/data/rad/supertemplates/app"></location>
+	        	</locations>
+		</directory>
+	
+	        <!-- control the output directory for application template files -->
+		<!-- the list here should be a 1 to 1 match against all the unique templatetype parameters in the template elements -->
+	        <directory name="apptemplates">
+	                <locations>
+	                         <location name="template" dir="/data/##pcode##/templates"></location>
+	                         <location name="include" dir="/data/##pcode##/templates/includes/html"></location>
+	                         <location name="includeobject" dir="/data/##pcode##/templates/includes/obj"></location>
+	                </locations>
+	        </directory>
+
+	        <directory name="webservers">
+	                <locations name="common">
+	                         <location name="basedir" dir="/data/rad/supertemplates/webservers/"></location>
+	                </locations>
+
+	                <locations name="apache">
+	                         <location name="configs" dir="linuxmysql/virtualhost_base.conf"></location>
+	                         <location name="configs-ada" dir="linuxmysql/virtualhost_base_ada.conf"></location>
+	                         <location name="apacheconfigs" dir="/data/apache/config"></location>
+	                </locations>
+
+	                <locations name="solaris">
+	                </locations>
+
+
+	        </directory>
+
+
+	</directories>
+	
+	
+	<!-- the following is a list of reserved tag names, no actions need to be specified , these substitutions are -->
+	<!-- built into the TemplateGenerator and should not be defined by any template element below. -->
+	<!-- doing so would produce duplicate actions and unexpected behaviors. -->
+	<reserved_tags>
+		<tag name="pcode" description="This is the code for the current RAD product"></tag>
+		<tag name="title" description="This is the title of the rad product"></tag>
+	</reserved_tags>
+
+	
+	<!-- all of the super templates for the app -->
+	<apptemplates>
+		<template id="article" templatetype="template" description="Article Templates">
+			<supported_tags>
+				<tag name="browse" type="replace" ></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="footer" type="include" file="footer.html"></tag>
+				<tag name="content" type="replace" file="content.include"></tag>
+				<tag name="relatedassets" type="replace" file="relatedassets.include" ></tag>
+			</supported_tags>
+		</template>
+
+		<template id="interface" templatetype="template" description="Static Interface Templates">
+			<supported_tags>
+				<tag name="browse" type="replace" ></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="footer" type="include" file="footer.html"></tag>
+				<tag name="content" type="replace" file="staticcontent.include"></tag>
+			</supported_tags>
+		</template>
+
+
+		<template id="browse" templatetype="template" description="Browse List Templates">
+			<supported_tags>
+				<tag name="browse" type="replace" ></tag>
+				<tag name="content" type="replace" ></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="footer" type="include" file="footer.html"></tag>
+			</supported_tags>
+		</template>
+
+		<template id="browselist" templatetype="template" description="Browse List Templates">
+			<supported_tags>
+				<tag name="browse" type="replace" ></tag>
+				<tag name="browselist" type="replace" ></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="footer" type="include" file="footer.html"></tag>
+			</supported_tags>
+		</template>
+
+		<template id="search" templatetype="template" description="Search Results Template">
+			<supported_tags>
+				<tag name="hitlist" type="datareplace"></tag>
+				<tag name="maxitems" type="datareplace"></tag>
+				<tag name="dbname" type="datareplace"></tag>
+				<tag name="viewname" type="datareplace"></tag>
+				<tag name="searchtype" type="datareplace"></tag>
+				<tag name="stemming" type="datareplace"></tag>
+                                <tag name="header" type="include"></tag>
+                                <tag name="footer" type="include"></tag>
+                                <tag name="browse" type="replace"></tag>
+			</supported_tags>
+		</template>
+
+		<template id="splashinterface" templatetype="template" description="Splash Interface Template">
+			<supported_tags>
+				<tag name="header" type="include"></tag>
+				<tag name="content" type="replace" file="staticcontent.include"></tag>
+			</supported_tags>
+		</template>
+
+	        <!-- all footer templates -->
+		<template id="footer" templatetype="include">
+			<supported_tags>
+				<tag name="home" type="replace" file="home.include"></tag>
+				<tag name="toggle" type="replace" file="toggle.include"></tag>
+				<tag name="help" type="replace" file="help.include"></tag>
+				<tag name="about" type="replace" file="about.include"></tag>
+			</supported_tags>
+		</template>
+		
+		<!-- the header template contains no tagging , however it has an entry in this ruleset to show that this is an include templatetype -->
+		<template id="header" templatetype="include">
+		</template>
+		
+		
+		<template id="relatedassets" templatetype="template" description="Related Assets Panel Templates">
+			<supported_tags>
+				<tag name="1" type="include"></tag>
+				<tag name="2" type="include"></tag>
+				<tag name="3" type="include"></tag>
+				<tag name="4" type="include"></tag>
+				<tag name="5" type="include"></tag>
+				<tag name="6" type="include"></tag>
+				<tag name="7" type="include"></tag>
+				<tag name="8" type="include"></tag>
+				<tag name="9" type="include"></tag>
+				<tag name="10" type="include"></tag>
+			</supported_tags>
+		</template>
+
+			<!-- the different types of related assets supported.  Please note this is shown -->
+			<!-- hierarchically , however they are NOT children of the above relatedassets template element-->
+			<template id="relarts" templatetype="includeobject" description="Related Articles object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relartwork" templatetype="includeobject" description="Related Artwork object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+		                        <tag name="moreflag" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relbiblios" templatetype="includeobject" alt="Related Bibliographies object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relfactboxes" templatetype="includeobject" description="Related Factboxes object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relflags" templatetype="includeobject" description="Related Flags object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+		                        <tag name="moreflag" type="datareplace"></tag>
+		                        <tag name="pagetype" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relmaps" templatetype="includeobject" description="Related Maps object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+		                        <tag name="moreflag" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relpictures" templatetype="includeobject" description="Related Pictures object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+		                        <tag name="moreflag" type="datareplace"></tag>
+					<tag name="pagetype" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="reltables" templatetype="includeobject" description="Related Tables object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+					<tag name="moreflag" type="datareplace"></tag>
+					<tag name="pagetype" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+		
+			<template id="relweblinks" templatetype="includeobject" description="Related WebLinks object">
+				<supported_tags>
+					<tag name="max" type="datareplace"></tag>
+					<tag name="type" type="datareplace"></tag>
+					<tag name="popupbegin" type="datareplace"></tag>
+					<tag name="popupend" type="datareplace"></tag>
+				</supported_tags>
+			</template>
+
+		<!-- all medialist templates including popup and fullsize -->
+		<template id="medialist" templatetype="template" description="media list templates">
+			<supported_tags>
+				<tag name="medialist" type="replace" file="medialist.include"></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="browse" type="replace"></tag>
+				<tag name="footer" type="include"></tag>
+			</supported_tags>
+		</template>
+
+		<!-- all media page templates , including popup and fullsize -->
+		<template id="media" templatetype="template" description="Media Templates">
+			<supported_tags>
+				<tag name="image" type="replace" file="mediaimage.include"></tag>
+				<tag name="assettitle" type="replace" file="mediaassettitle.include"></tag>
+				<tag name="caption" type="replace" file="mediacaption.include"></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="browse" type="replace"></tag>
+				<tag name="footer" type="include"></tag>
+			</supported_tags>
+		</template>
+
+		<template id="gii" templatetype="template" description="GII Pages">
+			<supported_tags>
+				<tag name="browse" type="replace" ></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="footer" type="include" file="footer.html"></tag>
+				<tag name="content" type="replace" file="giilinks.include"></tag>
+			</supported_tags>
+		</template>
+
+                <template id="advsearch" templatetype="template" description="Advanced Search Templates">
+                        <supported_tags>
+                                <tag name="browse" type="replace"></tag>
+                                <tag name="header" type="include"></tag>
+                                <tag name="footer" type="include"></tag>
+                        </supported_tags>
+                </template>
+
+		<!-- all textlist templates including popup and fullsize -->
+		<template id="textlist" templatetype="template" description="text list templates">
+			<supported_tags>
+				<tag name="textlist" type="replace"></tag>
+				<tag name="header" type="include"></tag>
+				<tag name="browse" type="replace"></tag>
+				<tag name="footer" type="include"></tag>
+			</supported_tags>
+		</template>
+
+	</apptemplates>
+</rad>
+

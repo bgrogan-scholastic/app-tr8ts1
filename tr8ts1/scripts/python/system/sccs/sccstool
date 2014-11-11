@@ -1,0 +1,118 @@
+#!/usr/bin/python
+
+#############################################################################
+# Author: Todd Reisel
+# Main Module
+# Date: April, 23rd, 2004
+# Description: Mimic Sun's sccs command set and provide a more
+#                  intuitive interface with an additional interactive mode
+#                  which can be used in a seperate window to issue many sccs
+#                  commands.
+#############################################################################
+
+import sys;
+import os;
+import OS_Commands;
+import SCCS_Commands;
+import UserInformation;
+
+def usage():
+	print """
+Usage for sccs script.....
+Non-interactive mode:
+
+	sccs <command> <filepath>
+	
+		<command> can be defined as:
+			edit	    - checkout a file
+			unedit      - undo changes to a checked out file
+			checkin     - check in a new or existing file
+
+
+Interactive mode:
+	sccs -i <workspace>
+
+		<workspace> is defined as qadevWS, commonWS, etc.		
+	""";
+
+
+
+if __name__ == "__main__":
+	os.system("clear");
+	#check the command line parameters
+        #get the command line arguments
+	commandArgs = sys.argv[1:];
+	numCommandArgs = len(sys.argv[1:]);
+
+	if numCommandArgs == 0:
+		usage();
+
+	else:
+		_sccsServer = 'devserver2.grolier.com';
+		_userInformation = UserInformation.UserInformation();
+
+		_baseSccsWorkspacePath = '/export/home/';
+		_sccsWorkspace = '';
+		
+			
+		_osCommands = None;		
+		sccs = None;
+		
+
+		#if sccs.isGood() == 0:
+		#	print "Could not get connection to sccs";
+		#	print sccs.getErrors();
+		#else:
+		#	print "Got a connection to sccs!";
+
+		if commandArgs[0] == '-i':
+			_sccsWorkspace = commandArgs[1];
+
+			_osCommands = OS_Commands.OS_Commands(_userInformation, _sccsServer, _baseSccsWorkspacePath,_sccsWorkspace);
+			sccs = SCCS_Commands.SCCS_Commands(_userInformation, _sccsServer);
+			
+			print 'Running sccs in interactive mode';
+		
+			_sccsWorkspace = commandArgs[1];
+			currentCommand = '';
+		
+			while(currentCommand != 'quit'):
+				#what is the user's command?
+				currentCommand = raw_input('sccs> ');
+				
+				#is this an sccs command, if so pass it to the SCCS_commands class
+				if currentCommand.startswith('edit')       or \
+				   currentCommand.startswith('unedit')     or \
+				   currentCommand.startswith('checkinnew') or \
+				   currentCommand.startswith('checkin')	   or \
+				   currentCommand.startswith('diff')	   or \
+				   currentCommand.startswith('status'):					   
+				   	sccs.command(_osCommands.getCurrentWorkspace(), _osCommands.getCurrentDirectory(), currentCommand);
+				else:   
+					#its a system type call (ls, dir, cd, etc)
+					_osCommands.command(currentCommand);
+					
+				
+		else:
+			if len(commandArgs) != 2:
+				usage();
+			else:
+				print "Running sccs in non-interactive mode";
+				filePath = commandArgs[1];
+
+				currentCommand = commandArgs[0] + " " + filePath;
+				
+				print "";
+				print "The command is: " + currentCommand;
+				print "The file affected is: " + filePath;
+				print "";
+				
+				_osCommands = OS_Commands.OS_Commands(_userInformation, _sccsServer, _baseSccsWorkspacePath,_sccsWorkspace);
+				sccs = SCCS_Commands.SCCS_Commands(_userInformation, _sccsServer);
+
+				if currentCommand.startswith('edit')       or \
+				   currentCommand.startswith('unedit')     or \
+				   currentCommand.startswith('checkinnew') or \
+				   currentCommand.startswith('checkin'):
+					currentDirectory = os.path.split(filePath)[0];
+				   	sccs.command(None, currentDirectory, currentCommand);

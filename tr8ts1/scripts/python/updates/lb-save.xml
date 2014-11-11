@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<update>
+  <!-- this section defines the loadbalancer configurations with all their backend servers -->
+  <loadbalancers>
+    <loadbalancer id="dby" host="lbdby.grolier.com">
+      <product id="go">
+        <set id="0">
+          <backend id="gopassport0dby">
+             <ssh>1000</ssh>
+             <rsync>1010</rsync>
+             <http>1020</http>
+             <mysql>1030</mysql>
+             <vpnhost>go-kidstestdby.grolier.com</vpnhost>
+             <httphost>go-passporttestdby.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Danbury GO Passport Server (0)</title>
+          </backend>
+          <backend id="gokids0dby">
+             <ssh>1000</ssh>
+             <rsync>1010</rsync>
+             <http>1020</http>
+             <mysql>1030</mysql>
+             <vpnhost>go-kidstestdby.grolier.com</vpnhost>
+             <httphost>go-kidstestdby.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Danbury GO Kids Server (0)</title>
+          </backend>
+        </set>
+        <set id="1">
+          <backend id="gopassport1dby">
+             <ssh>1001</ssh>
+             <rsync>1011</rsync>
+             <http>1021</http>
+             <mysql>1031</mysql>
+             <vpnhost>go-kidstestdby.grolier.com</vpnhost>
+             <httphost>go-passporttestdby.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Danbury GO Passport Server (1)</title>
+          </backend>
+          <backend id="gokids1dby">
+             <ssh>1001</ssh>
+             <rsync>1011</rsync>
+             <http>1021</http>
+             <mysql>1031</mysql>
+             <vpnhost>go-kidstestdby.grolier.com</vpnhost>
+             <httphost>go-kidstestdby.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Danbury GO Kids Server (1)</title>
+          </backend>
+        </set>
+      </product>
+      <product id="gme">
+        <set id="0">
+          <backend id="gme0dby">
+            <ssh>1000</ssh>
+            <rsync>1010</rsync>
+            <http>1020</http>
+            <mysql>1030</mysql>
+            <vpnhost>gmetestdby.grolier.com</vpnhost>
+            <httphost>gmetestdby.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Danbury GME Server (0)</title>
+          </backend>
+          <backend id="gme0adadby">
+            <ssh>1000</ssh>
+            <rsync>1010</rsync>
+            <http>1020</http>
+            <mysql>1030</mysql>
+            <vpnhost>gmetestdby.grolier.com</vpnhost>
+            <httphost>gme-adatestdby.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Danbury GME-ADA Server (0)</title>
+          </backend>
+        </set>
+        <set id="1">
+          <backend id="gme1dby">
+            <ssh>1001</ssh>
+            <rsync>1011</rsync>
+            <http>1021</http>
+            <mysql>1031</mysql>
+            <vpnhost>gmetestdby.grolier.com</vpnhost>
+            <httphost>gmetestdby.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Danbury GME Server (1)</title>
+          </backend>
+          <backend id="gme1adadby">
+            <ssh>1001</ssh>
+            <rsync>1011</rsync>
+            <http>1021</http>
+            <mysql>1031</mysql>
+            <vpnhost>gmetestdby.grolier.com</vpnhost>
+            <httphost>gme-adatestdby.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Danbury GME-ADA Server (1)</title>
+          </backend>
+        </set>
+      </product>
+    </loadbalancer>
+    <loadbalancer id="sc" host="lbsc.grolier.com">
+      <product id="go">
+        <set id="0">
+          <backend id="gopassport0sc">
+             <ssh>1000</ssh>
+             <rsync>1010</rsync>
+             <http>1020</http>
+             <mysql>1030</mysql>
+             <vpnhost>go-kidsvpnsc.grolier.com</vpnhost>
+             <httphost>go-passporttestsc.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Santa Clara GO Passport Server (0)</title>
+          </backend>
+          <backend id="gokids0sc">
+             <ssh>1000</ssh>
+             <rsync>1010</rsync>
+             <http>1020</http>
+             <mysql>1030</mysql>
+             <vpnhost>go-kidsvpnsc.grolier.com</vpnhost>
+             <httphost>go-kidstestsc.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Santa Clara GO Kids Server (0)</title>
+          </backend>
+        </set>
+        <set id="1">
+          <backend id="gopassport1sc">
+             <ssh>1001</ssh>
+             <rsync>1011</rsync>
+             <http>1021</http>
+             <mysql>1031</mysql>
+             <vpnhost>go-kidsvpnsc.grolier.com</vpnhost>
+             <httphost>go-passporttestsc.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Santa Clara GO Passport Server (1)</title>
+          </backend>
+          <backend id="gokids1sc">
+             <ssh>1001</ssh>
+             <rsync>1011</rsync>
+             <http>1021</http>
+             <mysql>1031</mysql>
+             <vpnhost>go-kidsvpnsc.grolier.com</vpnhost>
+             <httphost>go-kidstestsc.grolier.com</httphost>
+             <dbname>go2</dbname>
+             <title>Santa Clara GO Kids Server (1)</title>
+          </backend>
+        </set>
+      </product>
+      <product id="gme">
+        <set id="0">
+          <backend id="gme0sc">
+            <ssh>1000</ssh>
+            <rsync>1010</rsync>
+            <http>1020</http>
+            <mysql>1030</mysql>
+            <vpnhost>gmevpnsc.grolier.com</vpnhost>
+            <httphost>gmetestsc.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Santa Clara GME Server (0)</title>
+          </backend>
+          <backend id="gmeada0sc">
+            <ssh>1000</ssh>
+            <rsync>1010</rsync>
+            <http>1020</http>
+            <mysql>1030</mysql>
+            <vpnhost>gmevpnsc.grolier.com</vpnhost>
+            <httphost>gme-adatestsc.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Santa Clara GME-ADA Server (0)</title>
+          </backend>
+        </set>
+        <set id="1">
+          <backend id="gme1sc">
+            <ssh>1001</ssh>
+            <rsync>1011</rsync>
+            <http>1021</http>
+            <mysql>1031</mysql>
+            <vpnhost>gmevpnsc.grolier.com</vpnhost>
+            <httphost>gmetestsc.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Santa Clara GME Server (1)</title>
+          </backend>
+          <backend id="gmeada1sc">
+            <ssh>1001</ssh>
+            <rsync>1011</rsync>
+            <http>1021</http>
+            <mysql>1031</mysql>
+            <vpnhost>gmevpnsc.grolier.com</vpnhost>
+            <httphost>gme-adatestsc.grolier.com</httphost>
+             <dbname>gme3</dbname>
+            <title>Santa Clara GME-ADA Server (1)</title>
+          </backend>
+        </set>
+      </product>
+    </loadbalancer>
+  </loadbalancers>
+</update>
+
+

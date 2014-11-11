@@ -1,0 +1,91 @@
+H2.soon { font-size: 26px; }
+
+.clearit {
+	margin: 0;
+	padding: 0;
+	height: 0;
+	clear: both;
+}
+ul#page-menu {
+	margin: 0 20px 0 20px;
+	padding: 0;
+	list-style-type: none;
+	width: auto;
+	position: relative;
+	display: block;
+	height: 21px;
+	font-size: 12px;
+	background: transparent url("/images/global/blue.jpg") repeat-x top left;
+}
+ul#page-menu li{
+	display:block;
+	float:left;
+	margin:0;
+	pading:0;
+	border-right:1px solid #ffffff;
+	}
+ul#page-menu li a{
+	display:block;
+	float:left;
+	color:#ffffff;
+	text-decoration:none;
+	padding: 2px 16px 0 16px;
+	height:21px;
+	}
+ul#page-menu li a:hover{
+	background:transparent url("/images/global/black.jpg") repeat-x top left;	
+	}
+
+.indicator {
+	background: transparent url("/images/global/light-blue.jpg") repeat-x top left;
+	color: #009;
+}
+
+#picture {
+		float: left;
+		width: 200px;
+		text-align: left;
+		margin-right: 18px;
+		margin-left: 18px;
+		margin-bottom:30px;
+		height:175px;
+}
+#picture a {
+		text-align: left;
+		
+}
+a:visited {text-decoration: none; color:#9966CC}
+
+
+.creditPopup{
+margin-top:10px;
+
+}
+
+#picture h3{
+height:36px;
+}
+
+.closeButton{
+text-align: center;
+margin-top:80px;
+font-family:arial,sans-serif;
+}
+
+.closeButton a{
+	text-decoration: none;
+	color: #0000cc;
+}
+
+.closeButton a:hover { text-decoration: underline; }
+
+.closeButton a:visited {
+	text-decoration: none;
+	color: #9966CC;
+}	
+
+#inline_credit{
+margin:80px 40px 0 40px;
+text-align:left;
+
+}
